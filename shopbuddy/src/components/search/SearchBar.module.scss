@@ -1,0 +1,195 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.wrapper {
+  width: 100%;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 50px;
+  box-shadow: none;
+  transition: border-color $duration-normal $ease-default;
+  padding: 6px 8px 6px 14px;
+  position: relative;
+
+  &:hover {
+    border-color: $color-ink-black;
+  }
+
+  &.focused {
+    border-color: $color-ink-black;
+    outline: 2px solid $color-fresh-grass;
+    outline-offset: 2px;
+  }
+}
+
+.large .searchBox {
+  height: 64px;
+  padding: 6px 8px 6px 16px;
+
+  @include mobile {
+    height: auto;
+    flex-wrap: wrap;
+    padding: 10px 12px;
+    gap: 8px;
+    border-radius: 28px;
+  }
+}
+
+.iconArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-ink-black;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.searchIcon {
+  color: $color-ink-black;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: $font-body;
+  font-size: 16px;
+  font-weight: 400;
+  color: $color-ink-black;
+  outline: none;
+  min-width: 0;
+
+  &::placeholder {
+    color: $color-stone-gray;
+    opacity: 0.85;
+  }
+
+  @include mobile {
+    font-size: 15px;
+    width: 100%;
+  }
+}
+
+.large .input {
+  font-size: 17px;
+}
+
+.clearBtn {
+  @include button-reset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-stone-gray;
+  padding: 6px;
+  border-radius: 50%;
+  margin-right: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color $duration-fast $ease-default, background-color $duration-fast $ease-default;
+
+  &:hover {
+    color: $color-ink-black;
+    background: rgba($color-ink-black, 0.06);
+  }
+}
+
+.actionBtn {
+  @include button-reset;
+  background: $color-fresh-grass;
+  color: $color-ink-black;
+  font-family: $font-body;
+  font-size: 15px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 24px;
+  height: 48px;
+  border-radius: 50px;
+  flex-shrink: 0;
+  box-shadow: none;
+  transition: transform $duration-fast $ease-default, background-color $duration-fast $ease-default;
+
+  &:hover {
+    transform: scale(1.02);
+    background: #7ec452;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  @include mobile {
+    width: 100%;
+    height: 44px;
+  }
+}
+
+.compact .actionBtn {
+  height: 38px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+// --- Suggestions / Chips (Two-row layout as in Screenshot A) ---
+.suggestionsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.chipRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.suggestionLabel {
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 500;
+  color: $color-stone-gray;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-right: 4px;
+}
+
+.chip {
+  @include button-reset;
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 50px;
+  padding: 8px 18px;
+  font-family: $font-body;
+  font-size: 14px;
+  font-weight: 400;
+  color: $color-ink-black;
+  box-shadow: none;
+  transition: border-color $duration-fast $ease-default, background-color $duration-fast $ease-default, transform $duration-fast $ease-default;
+
+  &:hover {
+    border-color: $color-ink-black;
+    background: #faf8f2;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  @include mobile {
+    font-size: 13px;
+    padding: 7px 14px;
+  }
+}

@@ -1,0 +1,151 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.alertsContainer {
+  @include container;
+  padding-top: 24px;
+  padding-bottom: 80px;
+}
+
+.headerRow {
+  margin-bottom: 32px;
+}
+
+.pageTitle {
+  font-family: $font-display;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: $color-ink-black;
+  margin-bottom: 6px;
+}
+
+.pageSubtitle {
+  font-size: 15px;
+  color: $color-stone-gray;
+}
+
+.alertsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.alertCard {
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 50px;
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  transition: border-color $duration-fast $ease-default;
+
+  &:hover {
+    border-color: $color-ink-black;
+  }
+}
+
+.alertIconCol {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: $color-fresh-grass;
+  color: $color-ink-black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.alertDetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.prodId {
+  font-size: 16px;
+  font-weight: 500;
+  color: $color-ink-black;
+}
+
+.alertType {
+  font-size: 13px;
+  color: $color-stone-gray;
+  text-transform: capitalize;
+}
+
+.targetCol {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.targetLabel {
+  font-size: 11px;
+  color: $color-stone-gray;
+  text-transform: uppercase;
+}
+
+.targetVal {
+  font-family: $font-body;
+  font-size: 17px;
+  font-weight: 500;
+  color: $color-ink-black;
+}
+
+.statusBadge {
+  font-size: 12px;
+  font-weight: 500;
+  color: $color-ink-black;
+  background: $color-fresh-grass;
+  padding: 4px 10px;
+  border-radius: 10px;
+}
+
+.emptyContainer {
+  @include container-narrow;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.emptyIcon {
+  color: $color-fresh-grass;
+  margin-bottom: 16px;
+}
+
+.emptyTitle {
+  font-family: $font-display;
+  font-size: 28px;
+  font-weight: 500;
+  color: $color-ink-black;
+  margin-bottom: 8px;
+}
+
+.emptySubtitle {
+  font-size: 16px;
+  color: $color-stone-gray;
+  max-width: 480px;
+  margin: 0 auto 28px auto;
+  line-height: 1.5;
+}
+
+.browseBtn {
+  display: inline-flex;
+  background: $color-fresh-grass;
+  color: $color-ink-black;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform $duration-fast $ease-default;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+

@@ -1,0 +1,260 @@
+// ============================================
+// SHOPBUDDY AI — Mixins
+// ============================================
+
+@use 'sass:list';
+@use 'variables' as *;
+
+// --- Breakpoints ---
+@mixin mobile {
+  @media (max-width: #{$bp-tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $bp-tablet) and (max-width: #{$bp-desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+@mixin desktop-lg {
+  @media (min-width: $bp-desktop-lg) {
+    @content;
+  }
+}
+
+@mixin desktop-xl {
+  @media (min-width: $bp-desktop-xl) {
+    @content;
+  }
+}
+
+// --- Layout ---
+@mixin container {
+  width: 100%;
+  max-width: $container-max;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $space-5;
+  padding-right: $space-5;
+
+  @include desktop {
+    padding-left: $space-8;
+    padding-right: $space-8;
+  }
+}
+
+@mixin container-narrow {
+  width: 100%;
+  max-width: $container-narrow;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $space-5;
+  padding-right: $space-5;
+}
+
+// --- Typography ---
+@mixin font-display {
+  font-family: $font-display;
+  font-feature-settings: $font-feature;
+}
+
+@mixin font-body {
+  font-family: $font-body;
+  font-feature-settings: $font-feature;
+}
+
+@mixin heading-hero {
+  @include font-display;
+  font-weight: $fw-medium;
+  font-size: clamp(44px, 8.5vw, 140px);
+  line-height: $lh-display;
+  letter-spacing: -0.06em;
+  color: $text-primary;
+}
+
+@mixin heading-display {
+  @include font-display;
+  font-weight: $fw-medium;
+  font-size: clamp(48px, 9vw, 140px);
+  line-height: 0.95;
+  letter-spacing: -8.4px;
+  color: $text-primary;
+}
+
+@mixin heading-page {
+  @include font-display;
+  font-weight: $fw-medium;
+  font-size: clamp(36px, 6vw, 81px);
+  line-height: 1.2;
+  letter-spacing: -4.86px;
+  color: $text-primary;
+}
+
+@mixin heading-section {
+  @include font-display;
+  font-weight: $fw-medium;
+  font-size: clamp(28px, 4vw, 53px);
+  line-height: 1.15;
+  letter-spacing: -2.12px;
+  color: $text-primary;
+}
+
+@mixin heading-card {
+  @include font-body;
+  font-weight: $fw-medium;
+  font-size: 30px;
+  line-height: 1.2;
+  color: $text-primary;
+}
+
+@mixin text-body {
+  @include font-body;
+  font-weight: $fw-regular;
+  font-size: 15px;
+  line-height: 1.5;
+  color: $text-primary;
+}
+
+@mixin text-secondary {
+  @include font-body;
+  font-weight: $fw-regular;
+  font-size: 15px;
+  line-height: 1.5;
+  color: $text-secondary;
+}
+
+@mixin text-small {
+  @include font-body;
+  font-weight: $fw-regular;
+  font-size: 15px;
+  line-height: 1.5;
+  color: $text-secondary;
+}
+
+@mixin text-label {
+  @include font-body;
+  font-weight: $fw-medium;
+  font-size: 15px;
+  line-height: 1.5;
+  color: $text-secondary;
+}
+
+@mixin text-price {
+  @include font-body;
+  font-weight: $fw-medium;
+  font-size: 20px;
+  line-height: 1.25;
+  color: $text-primary;
+}
+
+@mixin text-metric {
+  @include font-display;
+  font-weight: $fw-medium;
+  font-size: 53px;
+  line-height: 1.15;
+  letter-spacing: -2.12px;
+  color: $text-primary;
+}
+
+// --- Interactive ---
+@mixin focus-ring {
+  outline: 2px solid $accent-primary;
+  outline-offset: 2px;
+}
+
+@mixin focus-visible {
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+@mixin button-reset {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+
+  @include focus-visible;
+}
+
+@mixin transition($properties...) {
+  $result: ();
+  @each $prop in $properties {
+    $result: list.append($result, $prop $duration-normal $ease-default, comma);
+  }
+  transition: $result;
+}
+
+// --- Cards & Surfaces (MindMarket: 50px radius, 21px padding, flat elevation) ---
+@mixin card {
+  background: $bg-card;
+  border: 1px solid $border-default;
+  border-radius: $radius-card;
+  padding: $card-padding;
+  @include transition(border-color);
+
+  &:hover {
+    border-color: $border-strong;
+  }
+}
+
+@mixin card-interactive {
+  @include card;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $accent-primary;
+  }
+}
+
+// --- Utilities ---
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin line-clamp($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// --- Reduced Motion ---
+@mixin reduce-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}

@@ -1,0 +1,301 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.mascotLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+// ── LEFT CLUSTER BOX (Measured on 1824x862 target) ──
+.leftClusterBox {
+  position: absolute;
+  left: 3.3vw;
+  bottom: 2.4vw;
+  width: clamp(260px, 23.3vw, 450px);
+  aspect-ratio: 425 / 692;
+  pointer-events: none;
+  z-index: 1;
+}
+
+// ── RIGHT CLUSTER BOX (Measured on 1824x862 target) ──
+.rightClusterBox {
+  position: absolute;
+  right: 1.9vw;
+  bottom: 2.8vw;
+  width: clamp(320px, 28.8vw, 555px);
+  aspect-ratio: 525 / 685;
+  pointer-events: none;
+  z-index: 1;
+}
+
+// ── Children Positioning inside Left Cluster ──
+.podiumLeft {
+  position: absolute;
+  left: 0%;
+  top: 46%;
+  width: 82%;
+  height: 28%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.botPhone {
+  position: absolute;
+  left: 15%;
+  top: 0%;
+  width: 80%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.botBeanbag {
+  position: absolute;
+  left: 3.5%;
+  top: 48.5%;
+  width: 96%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+// ── Children Positioning inside Right Cluster ──
+.botShopping {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  width: 94%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.podiumRight {
+  position: absolute;
+  left: 1%;
+  top: 82%;
+  width: 63%;
+  height: 15%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.botChef {
+  position: absolute;
+  left: 6.5%;
+  top: 41.5%;
+  width: 41%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.botDrill {
+  position: absolute;
+  left: 50.5%;
+  top: 52%;
+  width: 49.5%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+// ── Contact Shadows ──
+.shadowPhone {
+  position: absolute;
+  left: 28%;
+  top: 50.5%;
+  width: 48%;
+  height: 4.5%;
+  border-radius: 50%;
+  z-index: 1;
+  background: radial-gradient(ellipse at center, rgba(44, 46, 42, 0.22) 0%, rgba(44, 46, 42, 0) 70%);
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+.shadowBeanbag {
+  position: absolute;
+  left: 14%;
+  bottom: 0%;
+  width: 76%;
+  height: 6%;
+  border-radius: 50%;
+  z-index: 2;
+  background: radial-gradient(ellipse at center, rgba(44, 46, 42, 0.2) 0%, rgba(44, 46, 42, 0) 70%);
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+.shadowShopping {
+  position: absolute;
+  left: 25%;
+  top: 41.5%;
+  width: 50%;
+  height: 4.5%;
+  border-radius: 50%;
+  z-index: 1;
+  background: radial-gradient(ellipse at center, rgba(44, 46, 42, 0.14) 0%, rgba(44, 46, 42, 0) 70%);
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+.shadowChef {
+  position: absolute;
+  left: 11%;
+  top: 83.5%;
+  width: 33%;
+  height: 4%;
+  border-radius: 50%;
+  z-index: 1;
+  background: radial-gradient(ellipse at center, rgba(44, 46, 42, 0.24) 0%, rgba(44, 46, 42, 0) 70%);
+  filter: blur(3.5px);
+  pointer-events: none;
+}
+
+.shadowDrill {
+  position: absolute;
+  left: 56%;
+  bottom: 0%;
+  width: 38%;
+  height: 5%;
+  border-radius: 50%;
+  z-index: 2;
+  background: radial-gradient(ellipse at center, rgba(44, 46, 42, 0.2) 0%, rgba(44, 46, 42, 0) 70%);
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+// ── Image Display / Wrappers ──
+.desktopBot {
+  display: block;
+  width: 100%;
+}
+
+.tabletBot {
+  display: none;
+}
+
+// ── Motion: Float ONLY the bot images, never the podiums ──
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes botFloat1 {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  @keyframes botFloat2 {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(5px);
+    }
+  }
+
+  .botImageFloat1 {
+    width: 100%;
+    height: auto;
+    display: block;
+    animation: botFloat1 4.8s ease-in-out infinite;
+  }
+
+  .botImageFloat2 {
+    width: 100%;
+    height: auto;
+    display: block;
+    animation: botFloat2 5.4s ease-in-out infinite 0.8s;
+  }
+
+  .botImageFloat3 {
+    width: 100%;
+    height: auto;
+    display: block;
+    animation: botFloat1 5.0s ease-in-out infinite 0.4s;
+  }
+
+  .botImageFloat4 {
+    width: 100%;
+    height: auto;
+    display: block;
+    animation: botFloat2 5.6s ease-in-out infinite 1.2s;
+  }
+
+  .botImageFloat5 {
+    width: 100%;
+    height: auto;
+    display: block;
+    animation: botFloat1 4.6s ease-in-out infinite 0.6s;
+  }
+}
+
+// ── Responsive Rules (Step 7) ──
+
+// ≥1280px: Both clusters, all five bots at full geometry
+@media (min-width: 1280px) {
+  .leftClusterBox,
+  .rightClusterBox {
+    display: block;
+  }
+}
+
+// 1024px - 1279px: Shrink clusters and hide beanbag and drill bots
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .leftClusterBox {
+    width: 19vw;
+  }
+
+  .rightClusterBox {
+    width: 24vw;
+  }
+
+  .botBeanbag,
+  .shadowBeanbag,
+  .botDrill,
+  .shadowDrill {
+    display: none !important;
+  }
+}
+
+// 768px - 1023px: Keep only bot-phone-airpods (left) and bot-shopping (right), ~15vw, cropped ≤10% at screen edge
+@media (min-width: 768px) and (max-width: 1023px) {
+  .leftClusterBox {
+    left: -1.5vw;
+    width: 15vw;
+  }
+
+  .rightClusterBox {
+    right: -1.5vw;
+    width: 16vw;
+  }
+
+  .desktopBot {
+    display: none;
+  }
+
+  .tabletBot {
+    display: block;
+    width: 100%;
+  }
+
+  .podiumLeft,
+  .shadowPhone,
+  .botBeanbag,
+  .shadowBeanbag,
+  .podiumRight,
+  .shadowChef,
+  .botChef,
+  .botDrill,
+  .shadowDrill {
+    display: none !important;
+  }
+}
+
+// <768px: Hide both clusters (single mobile phone bot rendered above eyebrow in page.tsx)
+@media (max-width: 767px) {
+  .mascotLayer {
+    display: none !important;
+  }
+}

@@ -1,0 +1,16 @@
+// ============================================
+// SHOPBUDDY AI — Typography
+// ============================================
+
+@use 'variables' as *;
+
+// Typography base rules
+body {
+  font-family: $font-body;
+  font-feature-settings: $font-feature;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-display;
+  font-feature-settings: $font-feature;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Google Shopping - Partial Products</title>
+</head>
+<body>
+  <div class="sh-sr__shop-result-group">
+    <!-- Item 1: Complete Item -->
+    <div class="sh-dgr__grid-result">
+      <h3 class="tAxDx">Bose QuietComfort 45 Bluetooth Wireless Headphones</h3>
+      <div class="a8Pemb">₹22,900</div>
+      <div class="aULzUe">Amazon.in</div>
+      <a class="shntl" href="https://www.amazon.in/dp/B098FKXT8L">Link</a>
+    </div>
+
+    <!-- Item 2: Missing Price (Must be skipped) -->
+    <div class="sh-dgr__grid-result">
+      <h3 class="tAxDx">Generic Non-Product Article or Out of Stock Blog</h3>
+      <div class="aULzUe">SomeBlog.com</div>
+      <a class="shntl" href="https://someblog.com/review">Article Link</a>
+    </div>
+
+    <!-- Item 3: Missing Image, Rating, and Merchant (Price and Title present) -->
+    <div class="sh-dgr__grid-result">
+      <h3 class="tAxDx">Audio-Technica ATH-M50x Professional Studio Headphones</h3>
+      <div class="a8Pemb">₹13,500</div>
+      <a class="shntl" href="https://example.com/audio-technica">Link</a>
+    </div>
+
+    <!-- Item 4: Non-product Navigation banner (Must be skipped by candidate validation) -->
+    <div class="sh-dgr__grid-result">
+      <div class="tAxDx">Ad choices</div>
+      <div>Why this ad?</div>
+    </div>
+  </div>
+</body>
+</html>

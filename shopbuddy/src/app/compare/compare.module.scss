@@ -1,0 +1,2203 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.pageWrapper {
+  width: 100%;
+  background-color: $color-cream-paper;
+  min-height: 100vh;
+}
+
+.compareContainer {
+  @include container;
+  padding-top: 40px;
+  padding-bottom: 96px;
+}
+
+// ── 1. Hero Display Section ──
+.heroSection {
+  padding: 40px 0 24px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.pillBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 50px;
+  padding: 6px 18px;
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: $color-ink-black;
+  margin-bottom: 24px;
+}
+
+.badgeDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $color-fresh-grass;
+}
+
+.displayHeadline {
+  font-family: $font-display;
+  font-weight: 500;
+  font-size: clamp(36px, 5vw, 68px);
+  line-height: 1.08;
+  letter-spacing: -2.12px;
+  color: $color-ink-black;
+  margin: 0 auto 18px auto;
+  text-align: center;
+  max-width: 860px;
+}
+
+.subheadline {
+  font-family: $font-body;
+  font-size: clamp(16px, 1.8vw, 19px);
+  line-height: 1.5;
+  color: $color-stone-gray;
+  max-width: 680px;
+  margin: 0 auto 32px auto;
+  font-weight: 400;
+}
+
+.heroActionsRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.ghostPillBtn {
+  @include button-reset;
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 50px;
+  padding: 10px 22px;
+  font-size: 15px;
+  font-weight: 500;
+  color: $color-ink-black;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: border-color $duration-fast $ease-default;
+
+  &:hover {
+    border-color: $color-ink-black;
+  }
+}
+
+.btnActionDotBlue {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $color-sky-pop;
+}
+
+.btnActionDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $color-fresh-grass;
+}
+
+.coralOutlinePillBtn {
+  @include button-reset;
+  background: $color-pure-white;
+  border: 1px solid $color-coral-pop;
+  border-radius: 50px;
+  padding: 10px 22px;
+  font-size: 15px;
+  font-weight: 500;
+  color: $color-coral-pop;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all $duration-fast $ease-default;
+
+  &:hover {
+    background: $color-coral-pop;
+    color: $color-pure-white;
+  }
+}
+
+// ── 2. Storybook Illustration Panel ──
+.illustrationPanel {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 48px;
+  overflow: hidden;
+}
+
+.storybookSvg {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  display: block;
+}
+
+// ── Common MindMarket Tags & Badges ──
+.cardTagRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.sandstoneTag {
+  display: inline-flex;
+  align-items: center;
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-ink-black;
+  background: $color-sandstone;
+  padding: 4px 14px;
+  border-radius: 10px;
+}
+
+.sandstoneTagSmall {
+  display: inline-flex;
+  align-items: center;
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 500;
+  color: $color-ink-black;
+  background: $color-sandstone;
+  padding: 3px 10px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.coralTag {
+  display: inline-flex;
+  align-items: center;
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-coral-pop;
+  border: 1px solid $color-coral-pop;
+  padding: 4px 14px;
+  border-radius: 10px;
+}
+
+.confidenceTag {
+  display: inline-flex;
+  align-items: center;
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-ink-black;
+  background: rgba(142, 212, 98, 0.22);
+  border: 1px solid $color-fresh-grass;
+  padding: 4px 14px;
+  border-radius: 50px;
+}
+
+// ── 3. MindMarket Content Cards (50px Radius, No Box-Shadow) ──
+.verdictCard,
+.contentSectionCard,
+.finalRecommendationCard {
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 50px;
+  padding: 36px 32px;
+  margin-bottom: 48px;
+  position: relative;
+  transition: border-color $duration-normal $ease-default;
+
+  &:hover {
+    border-color: $color-ink-black;
+  }
+}
+
+.verdictHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.verdictTitleWrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sparkleIcon {
+  color: $color-fresh-grass;
+}
+
+.cardHeading {
+  font-family: $font-display;
+  font-size: clamp(24px, 3vw, 30px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: $color-ink-black;
+  margin-bottom: 8px;
+}
+
+.cardSubtext {
+  font-family: $font-body;
+  font-size: 17px;
+  line-height: 1.5;
+  color: $color-stone-gray;
+  margin-bottom: 28px;
+}
+
+.timestampPill {
+  font-size: 13px;
+  color: $color-stone-gray;
+  background: $color-sandstone;
+  padding: 4px 14px;
+  border-radius: 50px;
+}
+
+.verdictHighlightsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+// Inset cards on cream canvas with 25.5px - 30px radius
+.winnerLeaderBox {
+  background: $color-cream-paper;
+  border: 1px solid $color-fresh-grass;
+  border-radius: 30px;
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.valueLeaderBox {
+  background: $color-cream-paper;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 30px;
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.winnerCrownBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: $color-ink-black;
+}
+
+.valueCrownBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: $color-ink-black;
+}
+
+.leaderTitle {
+  font-family: $font-display;
+  font-size: 18px;
+  font-weight: 500;
+  color: $color-ink-black;
+  line-height: 1.35;
+}
+
+.leaderQuote {
+  font-size: 15px;
+  color: $color-stone-gray;
+  line-height: 1.5;
+}
+
+.bestForWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.bestForLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: $color-stone-gray;
+}
+
+.bestForPills {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.chipTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 10px;
+  padding: 3px 10px;
+  color: $color-ink-black;
+}
+
+.valueSavingsBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-ink-black;
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 50px;
+  padding: 4px 12px;
+  width: fit-content;
+}
+
+.keyDiffsBox {
+  background: $color-cream-paper;
+  border-radius: 30px;
+  padding: 24px 28px;
+}
+
+.keyDiffsTitle {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: $color-ink-black;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.keyDiffsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.keyDiffItem {
+  font-size: 15px;
+  color: $color-ink-black;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+
+.diffCheckDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $color-fresh-grass;
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+// ── 4. Product Header Comparison Grid (50px Radii Cards) ──
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.productCard {
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 50px;
+  padding: 32px 28px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color $duration-normal $ease-default;
+
+  &:hover {
+    border-color: $color-ink-black;
+  }
+
+  &.isTopWinnerCard {
+    border: 2px solid $color-fresh-grass;
+  }
+}
+
+.removeCircleBtn {
+  @include button-reset;
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: $color-cream-paper;
+  border: 1px solid $color-hairline-mist;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-stone-gray;
+  transition: all $duration-fast $ease-default;
+  z-index: 2;
+
+  &:hover {
+    color: $color-coral-pop;
+    border-color: $color-coral-pop;
+    background: $color-pure-white;
+  }
+}
+
+.topWinnerPillBadge {
+  position: absolute;
+  top: 22px;
+  left: 28px;
+  background: $color-fresh-grass;
+  color: $color-ink-black;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 4px 12px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 2;
+}
+
+// Inset Image Container: 280px height, 36px border radius, sticker-soft on cream paper
+.imageContainer {
+  height: 280px;
+  width: 100%;
+  background: $color-cream-paper;
+  border-radius: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 16px;
+}
+
+.productImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform $duration-normal $ease-default;
+
+  &:hover {
+    transform: scale(1.04);
+  }
+}
+
+.noImageText {
+  font-size: 14px;
+  color: $color-stone-gray;
+}
+
+.productCardTitle {
+  font-family: $font-display;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: $color-ink-black;
+  min-height: 48px;
+  @include line-clamp(2);
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.modelVariantText {
+  font-size: 13px;
+  color: $color-stone-gray;
+  margin-top: -6px;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.priceAmountBlock {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.fromLabel {
+  font-size: 13px;
+  color: $color-stone-gray;
+}
+
+.displayPriceText {
+  font-family: $font-display;
+  font-size: 26px;
+  font-weight: 500;
+  color: $color-ink-black;
+  letter-spacing: -0.02em;
+}
+
+.retailerChip {
+  font-size: 12px;
+  font-weight: 500;
+  color: $color-ink-black;
+  background: $color-sandstone;
+  padding: 3px 10px;
+  border-radius: 50px;
+}
+
+.ratingInfoRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ratingBadgePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: $color-ink-black;
+  background: $color-cream-paper;
+  border: 1px solid $color-hairline-mist;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.reviewCountText {
+  color: $color-stone-gray;
+  font-size: 13px;
+}
+
+.offersRow {
+  font-size: 13px;
+  color: $color-stone-gray;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+// MindMarket Primary Action: White or Green Pill with 50px radius and action dot
+.dealPillBtn {
+  @include button-reset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: $color-fresh-grass;
+  color: $color-ink-black;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 50px;
+  margin-top: auto;
+  transition: transform $duration-fast $ease-default, background $duration-fast $ease-default;
+
+  &:hover {
+    transform: translateY(-1px);
+    background: #81c657;
+  }
+}
+
+.dealActionDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $color-pure-white;
+}
+
+// ── 5. Overall Scorecard Section ──
+.overallBarsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.overallBarItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.barItemHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.barTitleGroup {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.barProdBrand {
+  font-family: $font-display;
+  font-size: 17px;
+  font-weight: 500;
+  color: $color-ink-black;
+}
+
+.barProdSub {
+  font-size: 13px;
+  color: $color-stone-gray;
+}
+
+.barScoreValueGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.scoreNumber {
+  font-family: $font-display;
+  font-size: 18px;
+  font-weight: 500;
+  color: $color-ink-black;
+}
+
+.winnerBadgePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: $color-fresh-grass;
+  color: $color-ink-black;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 50px;
+}
+
+.sandstoneBarTrack {
+  width: 100%;
+  height: 12px;
+  background: $color-cream-paper;
+  border-radius: 50px;
+  overflow: hidden;
+  border: 1px solid $color-sandstone;
+}
+
+.freshGrassBarFill {
+  height: 100%;
+  border-radius: 50px;
+  background: $color-fresh-grass;
+}
+
+.rationaleCalloutBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: $color-ink-black;
+  background: $color-cream-paper;
+  border: 1px solid $color-fresh-grass;
+  border-radius: 20px;
+  padding: 14px 20px;
+}
+
+// ── 6. Category Scorecard Section ──
+.editorialGridSection {
+  margin-bottom: 60px;
+}
+
+.sectionHeaderWrap {
+  margin-bottom: 24px;
+}
+
+.categoriesCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.categoryCard {
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 50px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: border-color $duration-normal $ease-default;
+
+  &:hover {
+    border-color: $color-ink-black;
+  }
+}
+
+.categoryCardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.categoryCardHeading {
+  font-family: $font-display;
+  font-size: 18px;
+  font-weight: 500;
+  color: $color-ink-black;
+  margin-bottom: 2px;
+}
+
+.categoryWeightLabel {
+  font-size: 12px;
+  color: $color-stone-gray;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.catWinnerPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 50px;
+  background: $color-cream-paper;
+  border: 1px solid $color-fresh-grass;
+  color: $color-ink-black;
+}
+
+.catBarsStack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.catBarUnit {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.catBarLabelsRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: $color-ink-black;
+}
+
+.catBarProdTitle {
+  font-weight: 500;
+}
+
+.catBarScoreValue {
+  font-weight: 600;
+}
+
+.catBarTrack {
+  width: 100%;
+  height: 8px;
+  background: $color-cream-paper;
+  border-radius: 50px;
+  overflow: hidden;
+  border: 1px solid $color-sandstone;
+}
+
+.catBarFill {
+  height: 100%;
+  border-radius: 50px;
+  background: $color-fresh-grass;
+}
+
+.catReasonText {
+  font-size: 12px;
+  color: $color-stone-gray;
+  margin-top: 2px;
+}
+
+// ── 7. Technical Specifications Matrix (MindMarket Interactive 50px Card) ──
+.matrixControlsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 24px;
+  margin-bottom: 20px;
+  padding: 16px 20px;
+  background: $color-cream-paper;
+  border-radius: 28px;
+  border: 1px solid $color-hairline-mist;
+}
+
+.matrixSearchWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 50px;
+  padding: 8px 18px;
+  flex: 1;
+  min-width: 240px;
+  max-width: 440px;
+  transition: all $duration-fast $ease-default;
+
+  &:focus-within {
+    border-color: $color-fresh-grass;
+    box-shadow: 0 0 0 3px rgba(142, 212, 98, 0.2);
+  }
+
+  svg {
+    color: $color-stone-gray;
+    flex-shrink: 0;
+  }
+}
+
+.matrixSearchInput {
+  border: none;
+  background: transparent;
+  font-family: $font-body;
+  font-size: 14px;
+  color: $color-ink-black;
+  width: 100%;
+  outline: none;
+
+  &::placeholder {
+    color: $color-stone-gray;
+  }
+}
+
+.matrixSearchClearBtn {
+  @include button-reset;
+  color: $color-stone-gray;
+  font-size: 14px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-ink-black;
+    background: $color-sandstone;
+  }
+}
+
+.matrixFilterTogglesGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.matrixToggleLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-ink-black;
+
+  input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid $color-stone-gray;
+    border-radius: 6px;
+    background: $color-pure-white;
+    cursor: pointer;
+    position: relative;
+    transition: all $duration-fast $ease-default;
+
+    &:checked {
+      background: $color-fresh-grass;
+      border-color: $color-fresh-grass;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 5px;
+        width: 4px;
+        height: 8px;
+        border: solid $color-ink-black;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-fresh-grass;
+      outline-offset: 2px;
+    }
+  }
+}
+
+.matrixActionButtons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.matrixPillButton {
+  @include button-reset;
+  font-size: 12px;
+  font-weight: 500;
+  color: $color-ink-black;
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  padding: 6px 14px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all $duration-fast $ease-default;
+
+  &:hover {
+    background: $color-sandstone;
+    border-color: $color-stone-gray;
+  }
+}
+
+// Data Quality & Coverage Summary Bar
+.matrixCoverageBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px 20px;
+  background: rgba(245, 241, 228, 0.6);
+  border-radius: 20px;
+  border: 1px dashed $color-hairline-mist;
+  margin-bottom: 20px;
+}
+
+.coverageBannerLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: $color-ink-black;
+
+  svg {
+    color: $color-fresh-grass;
+  }
+}
+
+.coveragePillsList {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.coveragePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 50px;
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  color: $color-ink-black;
+
+  strong {
+    color: $color-fresh-grass;
+    font-weight: 600;
+  }
+}
+
+.matrixStatsCounter {
+  font-size: 12px;
+  color: $color-stone-gray;
+  font-weight: 400;
+}
+
+.tableCardWrapper {
+  overflow-x: auto;
+  border-radius: 36px;
+  border: 1px solid $color-hairline-mist;
+  background: $color-pure-white;
+  max-width: 100%;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.specsTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 720px;
+
+  thead tr {
+    background: $color-cream-paper;
+  }
+}
+
+.stickyHeaderCorner {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 15;
+  background: $color-cream-paper;
+  padding: 18px 24px;
+  text-align: left;
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $color-stone-gray;
+  width: 260px;
+  min-width: 260px;
+  border-bottom: 2px solid $color-hairline-mist;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.02);
+}
+
+.stickyHeaderProduct {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: $color-cream-paper;
+  padding: 16px 24px;
+  text-align: left;
+  border-left: 1px solid $color-hairline-mist;
+  border-bottom: 2px solid $color-hairline-mist;
+  min-width: 220px;
+}
+
+.thProductHeaderContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.thProductThumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  padding: 4px;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+}
+
+.thProductMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.thProductBrand {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  color: $color-stone-gray;
+}
+
+.thProductTitle {
+  font-family: $font-display;
+  font-size: 14px;
+  font-weight: 500;
+  color: $color-ink-black;
+  line-height: 1.25;
+  @include line-clamp(1);
+}
+
+.thProductPricePill {
+  font-size: 12px;
+  font-weight: 600;
+  color: $color-ink-black;
+}
+
+// Collapsible Section Rows
+.sectionDividerRow {
+  background: $color-sandstone;
+  border-top: 1px solid $color-hairline-mist;
+  border-bottom: 1px solid $color-hairline-mist;
+  cursor: pointer;
+  transition: background $duration-fast $ease-default;
+
+  &:hover {
+    background: #ece7d9;
+  }
+}
+
+.sectionDividerCell {
+  padding: 0;
+  border-top: 1px solid $color-hairline-mist;
+  border-bottom: 1px solid $color-hairline-mist;
+}
+
+.sectionHeaderBtn {
+  @include button-reset;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sectionTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sectionTitleText {
+  font-family: $font-display;
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-ink-black;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sectionDescSub {
+  font-size: 12px;
+  color: $color-stone-gray;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  display: none;
+
+  @include desktop {
+    display: inline;
+    margin-left: 8px;
+  }
+}
+
+.sectionPillAndChevron {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sectionAttrCountPill {
+  font-size: 11px;
+  font-weight: 500;
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  padding: 2px 8px;
+  border-radius: 50px;
+  color: $color-stone-gray;
+}
+
+.sectionChevronIcon {
+  color: $color-ink-black;
+  transition: transform $duration-normal $ease-default;
+
+  &.isRotated {
+    transform: rotate(180deg);
+  }
+}
+
+.dataRow {
+  transition: background $duration-fast $ease-default;
+
+  &:nth-child(even) {
+    background: rgba(245, 241, 228, 0.35);
+  }
+
+  &:hover {
+    background: rgba(142, 212, 98, 0.05);
+  }
+}
+
+.metricLabelCell {
+  position: sticky;
+  left: 0;
+  z-index: 5;
+  background: $color-pure-white;
+  padding: 14px 24px;
+  border-bottom: 1px solid $color-hairline-mist;
+  width: 260px;
+  min-width: 260px;
+  vertical-align: middle;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.02);
+}
+
+.attrLabelGroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.attrLabelText {
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-ink-black;
+}
+
+.attrUnitText {
+  font-size: 11px;
+  color: $color-stone-gray;
+}
+
+.diffIndicatorBadge {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 1px 6px;
+  border-radius: 50px;
+  background: rgba(255, 112, 93, 0.12);
+  color: #c94030;
+}
+
+.specValueCell {
+  padding: 14px 24px;
+  font-size: 13.5px;
+  color: $color-ink-black;
+  border-bottom: 1px solid $color-hairline-mist;
+  border-left: 1px solid $color-hairline-mist;
+  vertical-align: middle;
+
+  &.winnerSpecCell {
+    background: rgba(142, 212, 98, 0.12);
+  }
+}
+
+.specCellContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.specValText {
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.specWinnerTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: $color-ink-black;
+  background: $color-fresh-grass;
+  padding: 2px 8px;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.specProvNote {
+  font-size: 10.5px;
+  color: $color-stone-gray;
+  font-weight: 400;
+}
+
+.emptyFilterState {
+  padding: 48px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  p {
+    font-size: 15px;
+    color: $color-stone-gray;
+  }
+}
+
+.resetFilterBtn {
+  @include button-reset;
+  background: $color-fresh-grass;
+  color: $color-ink-black;
+  font-weight: 500;
+  font-size: 13px;
+  padding: 8px 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all $duration-fast $ease-default;
+
+  &:hover {
+    background: #7dc453;
+  }
+}
+
+// ── 8. Double Card Layout (50px Radius) ──
+.doubleCardRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 60px;
+
+  @include desktop {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.halfContentCard {
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 50px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: border-color $duration-normal $ease-default;
+
+  &:hover {
+    border-color: $color-ink-black;
+  }
+}
+
+.cardHeaderFlex {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cardHeadingSmall {
+  font-family: $font-display;
+  font-size: 20px;
+  font-weight: 500;
+  color: $color-ink-black;
+  letter-spacing: -0.02em;
+}
+
+.ratingsList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ratingProductRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid $color-sandstone;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.ratingLeftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.ratingProductTitle {
+  font-size: 15px;
+  font-weight: 500;
+  color: $color-ink-black;
+}
+
+.ratingCountSub {
+  font-size: 13px;
+  color: $color-stone-gray;
+}
+
+.ratingRightCol {
+  text-align: right;
+}
+
+.starsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.starsNumber {
+  font-family: $font-display;
+  font-size: 15px;
+  font-weight: 600;
+  color: $color-ink-black;
+}
+
+.starsIconsRow {
+  display: flex;
+  gap: 2px;
+}
+
+.unratedText {
+  font-size: 13px;
+  color: $color-stone-gray;
+}
+
+.advantagePillBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: $color-ink-black;
+  background: $color-cream-paper;
+  border: 1px solid $color-fresh-grass;
+  padding: 10px 16px;
+  border-radius: 50px;
+  margin-top: auto;
+}
+
+.reviewIntelligenceList {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.reviewProductBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid $color-sandstone;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+.reviewProductHeading {
+  font-family: $font-display;
+  font-size: 15px;
+  font-weight: 500;
+  color: $color-ink-black;
+}
+
+.sentimentGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sentimentLabelGreen {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: $color-ink-black;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sentimentLabelCoral {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: $color-coral-pop;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sentimentList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sentimentItem {
+  font-size: 13px;
+  color: $color-ink-black;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.45;
+
+  svg {
+    flex-shrink: 0;
+    margin-top: 3px;
+    color: $color-fresh-grass;
+  }
+}
+
+.unavailableNoticeBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: $color-stone-gray;
+  background: $color-cream-paper;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+// ── 9. Pricing & Live Offers Section ──
+.priceDiffBanner {
+  background: $color-cream-paper;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 30px;
+  padding: 24px 28px;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.priceDiffTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.diffIconGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: $color-ink-black;
+}
+
+.diffValueText {
+  font-family: $font-display;
+  font-size: 22px;
+  font-weight: 500;
+  color: $color-ink-black;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.diffPctText {
+  font-size: 14px;
+  font-weight: 500;
+  color: $color-stone-gray;
+}
+
+.valueRationaleParagraph {
+  font-size: 15px;
+  color: $color-stone-gray;
+  line-height: 1.5;
+}
+
+.offersColumnsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.offersProductColumnCard {
+  background: $color-cream-paper;
+  border-radius: 30px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.offersColumnHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $color-sandstone;
+  padding-bottom: 12px;
+}
+
+.offersColTitle {
+  font-family: $font-display;
+  font-size: 15px;
+  font-weight: 500;
+  color: $color-ink-black;
+}
+
+.offersColBadge {
+  font-size: 12px;
+  color: $color-stone-gray;
+  background: $color-pure-white;
+  padding: 2px 10px;
+  border-radius: 50px;
+}
+
+.offersItemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.singleOfferPillRow {
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 20px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.offerStoreDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.storeNameText {
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-ink-black;
+}
+
+.sellerNameText {
+  font-size: 12px;
+  color: $color-stone-gray;
+}
+
+.warrantyText {
+  font-size: 12px;
+  color: #277e38;
+}
+
+.offerPriceActionCol {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.offerPriceText {
+  font-family: $font-display;
+  font-size: 15px;
+  font-weight: 600;
+  color: $color-ink-black;
+}
+
+.storeVisitPillBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: $color-ink-black;
+  background: $color-fresh-grass;
+  padding: 6px 14px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: transform $duration-fast $ease-default;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+.noOffersNotice {
+  font-size: 13px;
+  color: $color-stone-gray;
+  padding: 12px 0;
+}
+
+// ── 10. Pros & Cons Section ──
+.prosConsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.prosConsCard {
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 50px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.prosConsCardTitle {
+  font-family: $font-display;
+  font-size: 18px;
+  font-weight: 500;
+  color: $color-ink-black;
+  border-bottom: 1px solid $color-sandstone;
+  padding-bottom: 14px;
+}
+
+.prosConsGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.strengthsLabel {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: $color-ink-black;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.considerationsLabel {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: $color-coral-pop;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bulletList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.proItemRow {
+  font-size: 14px;
+  color: $color-ink-black;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.45;
+
+  svg {
+    flex-shrink: 0;
+    margin-top: 3px;
+    color: $color-fresh-grass;
+  }
+}
+
+.conItemRow {
+  font-size: 14px;
+  color: $color-stone-gray;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.45;
+
+  span:first-child {
+    color: $color-coral-pop;
+    font-weight: 700;
+  }
+}
+
+// ── 11. The Trade-Off Section ──
+.tradeOffsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.tradeOffCard {
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 50px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tradeOffPrompt {
+  font-family: $font-display;
+  font-size: 17px;
+  color: $color-ink-black;
+  line-height: 1.4;
+
+  strong {
+    color: $color-ink-black;
+  }
+}
+
+.tradeOffList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tradeOffItem {
+  font-size: 14px;
+  color: $color-stone-gray;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.45;
+}
+
+.tradeOffBullet {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $color-fresh-grass;
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+// ── 12. Final Buying Recommendation Card ──
+.finalRecommendationCard {
+  margin-bottom: 60px;
+}
+
+.finalRecHeadingGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.finalRecCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.finalOptionCard {
+  background: $color-cream-paper;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 36px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  &.isTopFinalOption {
+    border: 2px solid $color-fresh-grass;
+  }
+}
+
+.finalOptionHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.finalBrandTag {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: $color-ink-black;
+  background: $color-sandstone;
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+
+.finalCrownPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: $color-fresh-grass;
+  color: $color-ink-black;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 50px;
+}
+
+.finalOptionTitle {
+  font-family: $font-display;
+  font-size: 17px;
+  font-weight: 500;
+  color: $color-ink-black;
+  line-height: 1.35;
+}
+
+.finalOptionText {
+  font-size: 14px;
+  color: $color-stone-gray;
+  line-height: 1.5;
+}
+
+.finalOptionFooterRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid $color-sandstone;
+}
+
+.finalPriceText {
+  font-family: $font-display;
+  font-size: 20px;
+  font-weight: 500;
+  color: $color-ink-black;
+}
+
+.finalViewLink {
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-ink-black;
+  text-decoration: underline;
+
+  &:hover {
+    color: $color-stone-gray;
+  }
+}
+
+// ── 13. MindMarket Footer Accent Band (Sunshine Yellow Band) ──
+.footerAccentBand {
+  width: 100%;
+  background-color: $color-sunshine-pop;
+  padding: 48px 20px;
+  margin-top: 40px;
+}
+
+.footerAccentContainer {
+  @include container;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footerTextWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footerBrandMark {
+  font-family: $font-display;
+  font-size: 20px;
+  font-weight: 500;
+  color: $color-ink-black;
+  letter-spacing: -0.02em;
+}
+
+.footerSubtext {
+  font-size: 14px;
+  color: $color-ink-black;
+  opacity: 0.8;
+}
+
+.footerPillBtn {
+  background: $color-pure-white;
+  color: $color-ink-black;
+  border: 1px solid $color-ink-black;
+  padding: 12px 26px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform $duration-fast $ease-default;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+// ── Empty & Loading States ──
+.emptyContainer {
+  @include container;
+  min-height: 65vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 64px 20px;
+}
+
+.emptyIllustration {
+  margin-bottom: 24px;
+}
+
+.emptyErrorDot {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: $color-pure-white;
+  border: 1px solid $color-coral-pop;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.emptyTitle {
+  font-family: $font-display;
+  font-size: clamp(26px, 3.5vw, 36px);
+  font-weight: 500;
+  color: $color-ink-black;
+  margin-bottom: 12px;
+  letter-spacing: -0.03em;
+}
+
+.emptySubtitle {
+  font-size: 16px;
+  color: $color-stone-gray;
+  max-width: 520px;
+  margin-bottom: 32px;
+  line-height: 1.55;
+}
+
+.emptyActionsRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.browsePillBtn {
+  background: $color-pure-white;
+  color: $color-ink-black;
+  border: 1px solid $color-hairline-mist;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: border-color $duration-fast $ease-default, transform $duration-fast $ease-default;
+
+  &:hover {
+    border-color: $color-ink-black;
+    transform: translateY(-1px);
+  }
+}
+
+.loadingContainer {
+  @include container;
+  min-height: 65vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 16px;
+  padding: 64px 20px;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid $color-sandstone;
+  border-top-color: $color-fresh-grass;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.loadingHeading {
+  font-family: $font-display;
+  font-size: 24px;
+  font-weight: 500;
+  color: $color-ink-black;
+  letter-spacing: -0.02em;
+}
+
+.loadingText {
+  font-size: 15px;
+  color: $color-stone-gray;
+  max-width: 460px;
+  line-height: 1.5;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// ── Responsive ──
+@media (max-width: 768px) {
+  .verdictCard,
+  .contentSectionCard,
+  .finalRecommendationCard {
+    border-radius: 36px;
+    padding: 24px 20px;
+  }
+
+  .productCard {
+    border-radius: 36px;
+    padding: 24px 20px;
+  }
+
+  .imageContainer {
+    height: 220px;
+  }
+
+  .categoryCard {
+    border-radius: 36px;
+    padding: 24px 20px;
+  }
+
+  .halfContentCard {
+    border-radius: 36px;
+    padding: 24px 20px;
+  }
+
+  .tradeOffCard {
+    border-radius: 36px;
+    padding: 24px 20px;
+  }
+
+  .prosConsCard {
+    border-radius: 36px;
+    padding: 24px 20px;
+  }
+
+  .footerAccentContainer {
+    flex-direction: column;
+    text-align: center;
+  }
+}

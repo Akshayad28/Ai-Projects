@@ -1,0 +1,230 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.wishlistContainer {
+  @include container;
+  padding-top: 24px;
+  padding-bottom: 80px;
+}
+
+.headerRow {
+  margin-bottom: 32px;
+}
+
+.pageTitle {
+  font-family: $font-display;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: $color-ink-black;
+  margin-bottom: 6px;
+}
+
+.pageSubtitle {
+  font-size: 15px;
+  color: $color-stone-gray;
+}
+
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.itemCard {
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 50px;
+  padding: 20px 28px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: center;
+  transition: border-color $duration-fast $ease-default;
+
+  &:hover {
+    border-color: $color-ink-black;
+  }
+
+  @include tablet-up {
+    grid-template-columns: 80px 1fr 160px 160px;
+  }
+}
+
+.thumbWrapper {
+  width: 80px;
+  height: 80px;
+  background: $color-cream-paper;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.noThumb {
+  font-size: 11px;
+  color: $color-stone-gray;
+}
+
+.infoCol {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.brandRow {
+  font-size: 12px;
+  font-weight: 500;
+  color: $color-stone-gray;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.itemTitle {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+
+  a {
+    color: $color-ink-black;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.addedDate {
+  font-size: 12px;
+  color: $color-stone-gray;
+}
+
+.priceCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.priceLabel {
+  font-size: 11px;
+  color: $color-stone-gray;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.currentPrice {
+  font-family: $font-body;
+  font-size: 20px;
+  font-weight: 500;
+  color: $color-ink-black;
+}
+
+.dropTag {
+  font-size: 11px;
+  color: $color-ink-black;
+  background: $color-fresh-grass;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 500;
+  width: fit-content;
+}
+
+.actionsCol {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-start;
+
+  @include tablet-up {
+    justify-content: flex-end;
+  }
+}
+
+.viewDealBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: $color-fresh-grass;
+  color: $color-ink-black;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 50px;
+  transition: transform $duration-fast $ease-default;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.deleteBtn {
+  @include button-reset;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid $color-hairline-mist;
+  background: $color-cream-paper;
+  color: $color-stone-gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $duration-fast $ease-default;
+
+  &:hover {
+    color: $color-coral-pop;
+    border-color: $color-coral-pop;
+  }
+}
+
+.emptyContainer {
+  @include container-narrow;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.emptyIcon {
+  color: $color-fresh-grass;
+  margin-bottom: 16px;
+}
+
+.emptyTitle {
+  font-family: $font-display;
+  font-size: 28px;
+  font-weight: 500;
+  color: $color-ink-black;
+  margin-bottom: 8px;
+}
+
+.emptySubtitle {
+  font-size: 16px;
+  color: $color-stone-gray;
+  max-width: 480px;
+  margin: 0 auto 28px auto;
+  line-height: 1.5;
+}
+
+.browseBtn {
+  display: inline-flex;
+  background: $color-fresh-grass;
+  color: $color-ink-black;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform $duration-fast $ease-default;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+

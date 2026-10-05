@@ -1,0 +1,216 @@
+// ============================================
+// SHOPBUDDY AI — Global Styles
+// ============================================
+
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'typography';
+@use 'animations';
+
+// --- Reset ---
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+:root {
+  /* MindMarket Colors */
+  --color-fresh-grass: #8ed462;
+  --color-cream-paper: #f5f1e4;
+  --color-ink-black: #2c2e2a;
+  --color-pure-white: #ffffff;
+  --color-sandstone: #e0dbce;
+  --color-stone-gray: #80827f;
+  --color-hairline-mist: #d5d5d4;
+  --color-pure-ink: #000000;
+  --color-sky-pop: #2ba0ff;
+  --color-coral-pop: #ff705d;
+  --color-sunshine-pop: #f5e211;
+
+  /* Typography — Inter single-family */
+  --font-inter: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Scale */
+  --text-body-sm: 15px;
+  --leading-body-sm: 1.5;
+  --text-body-lg: 18px;
+  --leading-body-lg: 1.5;
+  --text-subheading: 20px;
+  --leading-subheading: 1.25;
+  --text-heading-sm: 30px;
+  --leading-heading-sm: 1.2;
+  --text-heading: 53px;
+  --leading-heading: 1.15;
+  --tracking-heading: -2.12px;
+  --text-heading-lg: 81px;
+  --leading-heading-lg: 1.2;
+  --tracking-heading-lg: -4.86px;
+  --text-display: 140px;
+  --leading-display: 0.95;
+  --tracking-display: -8.4px;
+  --text-display-lg: 144px;
+  --leading-display-lg: 0.95;
+  --tracking-display-lg: -8.64px;
+
+  /* Spacing */
+  --spacing-4: 4px;
+  --spacing-20: 20px;
+  --spacing-60: 60px;
+  --spacing-136: 136px;
+  --spacing-216: 216px;
+
+  /* Border Radii */
+  --radius-lg: 10px;
+  --radius-2xl: 20px;
+  --radius-3xl: 25.5px;
+  --radius-full: 50px;
+  --radius-full-2: 63.75px;
+
+  /* Named Radii */
+  --radius-nav: 50px;
+  --radius-cards: 50px;
+  --radius-small: 10px;
+  --radius-buttons: 50px;
+  --radius-illustration-containers: 63.75px;
+
+  /* Surfaces */
+  --surface-cream-paper: #f5f1e4;
+  --surface-pure-white: #ffffff;
+  --surface-sandstone: #e0dbce;
+}
+
+body {
+  @include font-body;
+  font-size: 15px;
+  line-height: 1.5;
+  color: $text-primary;
+  background-color: $color-cream-paper;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+// --- Focus ---
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  @include focus-ring;
+}
+
+// --- Links ---
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// --- Images ---
+img,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+// --- Lists ---
+ul,
+ol {
+  list-style: none;
+}
+
+// --- Tables ---
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// --- Buttons ---
+button {
+  @include button-reset;
+}
+
+// --- Inputs ---
+input,
+textarea,
+select {
+  @include font-body;
+  font-size: 15px;
+  color: $text-primary;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+// --- Headings ---
+h1, h2, h3, h4, h5, h6 {
+  @include font-display;
+  font-weight: $fw-medium;
+  color: $color-ink-black;
+  line-height: $lh-heading;
+  letter-spacing: -0.04em;
+}
+
+// --- Selection ---
+::selection {
+  background-color: $color-fresh-grass;
+  color: $color-ink-black;
+}
+
+// --- Scrollbar ---
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-sandstone;
+  border-radius: $radius-full;
+
+  &:hover {
+    background: $color-stone-gray;
+  }
+}
+
+// --- Layout Helpers ---
+.container {
+  @include container;
+}
+
+.container-narrow {
+  @include container-narrow;
+}
+
+.sr-only {
+  @include sr-only;
+}
+
+// --- Page Layout ---
+.page-wrapper {
+  padding-top: calc($header-height + 24px);
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  @include mobile {
+    padding-top: calc($header-height-mobile + 16px);
+    padding-bottom: $mobile-nav-height;
+  }
+}

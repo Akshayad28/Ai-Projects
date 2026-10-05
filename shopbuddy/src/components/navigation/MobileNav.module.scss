@@ -1,0 +1,74 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.bottomNav {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: $mobile-nav-height;
+  background: $color-pure-white;
+  border-top: 1px solid $color-hairline-mist;
+  z-index: $z-mobile-nav;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.navGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  height: 100%;
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  text-decoration: none;
+  color: $color-stone-gray;
+  transition: color $duration-fast $ease-default;
+
+  &.active {
+    color: $color-ink-black;
+    font-weight: 500;
+
+    .iconWrapper {
+      color: $color-ink-black;
+    }
+  }
+}
+
+.iconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  background: $color-fresh-grass;
+  color: $color-ink-black;
+  font-size: 10px;
+  font-weight: 500;
+  border-radius: 50px;
+  min-width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+}
+
+.label {
+  font-size: 11px;
+}
+

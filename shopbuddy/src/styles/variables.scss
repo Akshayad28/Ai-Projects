@@ -1,0 +1,190 @@
+// ============================================
+// SHOPBUDDY AI — MindMarket Design Tokens
+// "Warm storybook on cream paper"
+// ============================================
+
+// --- Colors (MindMarket Core) ---
+$color-fresh-grass: #8ed462;     // Primary brand accent — nav strokes, card borders, toggle fills
+$color-cream-paper: #f5f1e4;     // Dominant page background & soft card surface
+$color-ink-black: #2c2e2a;       // Primary text, icons, nav borders, dominant hairline border
+$color-pure-white: #ffffff;      // Elevated card surfaces, floating nav background
+$color-sandstone: #e0dbce;       // Secondary surface tone for inset or recessed card states
+$color-stone-gray: #80827f;      // Muted body text and secondary link borders
+$color-hairline-mist: #d5d5d4;   // Subtle nav dividers and low-contrast borders
+$color-pure-ink: #000000;        // Maximum contrast icons/borders
+$color-sky-pop: #2ba0ff;         // Decorative illustration accent, action dot indicator
+$color-coral-pop: #ff705d;       // Tag outlines, focused UI edges, service action CTA fill
+$color-sunshine-pop: #f5e211;    // Footer highlight & decorative warmth band
+
+// Semantic Mapping
+$bg-primary: $color-cream-paper;
+$bg-card: $color-pure-white;
+$bg-secondary: $color-sandstone;
+$bg-dark: $color-ink-black;
+
+$text-primary: $color-ink-black;
+$text-secondary: $color-stone-gray;
+$text-inverse: $color-pure-white;
+$text-muted: $color-stone-gray;
+
+$border-default: $color-hairline-mist;
+$border-strong: $color-ink-black;
+$border-subtle: rgba(44, 46, 42, 0.08);
+
+$accent-primary: $color-fresh-grass;
+$accent-positive: $color-fresh-grass;
+$accent-highlight: $color-sandstone;
+$accent-warning: $color-sunshine-pop;
+$accent-error: $color-coral-pop;
+$accent-action: $color-sky-pop;
+
+// Legacy aliases for components
+$color-obsidian: $color-ink-black;
+$color-ivory: $color-cream-paper;
+$color-sand: $color-sandstone;
+$color-slate: $color-stone-gray;
+$color-mist: $color-hairline-mist;
+$color-white: $color-pure-white;
+$color-sage: $color-sandstone;
+$color-verdant: $color-fresh-grass;
+$color-emerald: $color-fresh-grass;
+$color-amber: $color-sunshine-pop;
+$color-coral: $color-coral-pop;
+$color-midnight: $color-ink-black;
+
+// --- Typography (MindMarket Inter Single-Family) ---
+$font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+$font-display: var(--font-inter), $font-family;
+$font-body: var(--font-inter), $font-family;
+
+$font-feature: "cv11", "ss01";
+$font-variation: normal;
+
+// Font weights
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semibold: 500; // MindMarket uses 400 and 500
+$fw-bold: 500;     // Standardized to 500 as per spec
+
+// Font sizes (MindMarket Scale)
+$fs-xs: 0.5625rem;    // 9px
+$fs-sm: 0.9375rem;    // 15px (body-sm)
+$fs-base: 0.9375rem;  // 15px
+$fs-md: 1.0625rem;    // 17px
+$fs-lg: 1.125rem;     // 18px (body-lg)
+$fs-xl: 1.25rem;      // 20px (subheading)
+$fs-2xl: 1.875rem;    // 30px (heading-sm)
+$fs-3xl: 3.3125rem;   // 53px (heading)
+$fs-4xl: 5.0625rem;   // 81px (heading-lg)
+$fs-5xl: 6.5rem;      // ~104px
+$fs-hero: 8.75rem;    // 140px (display)
+$fs-hero-lg: 9rem;    // 144px (display-lg)
+
+// Line heights
+$lh-display: 0.95;
+$lh-heading: 1.15;
+$lh-heading-lg: 1.2;
+$lh-heading-sm: 1.2;
+$lh-subheading: 1.25;
+$lh-body: 1.5;
+$lh-tight: 0.95;
+$lh-snug: 1.2;
+$lh-normal: 1.5;
+$lh-relaxed: 1.6;
+
+// Letter spacing (MindMarket tight tracking at extreme scale)
+$ls-display: -8.4px;
+$ls-display-lg: -8.64px;
+$ls-heading-lg: -4.86px;
+$ls-heading: -2.12px;
+$ls-tight: -0.04em;
+$ls-normal: 0;
+$ls-wide: 0.02em;
+$ls-wider: 0.05em;
+
+// --- Spacing (Base unit: 4px) ---
+$spacing-unit: 4px;
+$spacing-4: 4px;
+$spacing-20: 20px;
+$spacing-60: 60px;
+$spacing-136: 136px;
+$spacing-216: 216px;
+
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 20px;
+$space-6: 24px;
+$space-8: 32px;
+$space-10: 40px;
+$space-12: 48px;
+$space-16: 64px;
+$space-20: 80px;
+$space-24: 96px;
+$space-32: 128px;
+
+// --- Border Radius (MindMarket Soft Sticker Radii) ---
+$radius-small: 10px;
+$radius-xs: 10px;
+$radius-sm: 10px;
+$radius-md: 10px;
+$radius-lg: 10px;
+$radius-2xl: 20px;
+$radius-3xl: 25.5px;
+$radius-card: 50px;
+$radius-cards: 50px;
+$radius-nav: 50px;
+$radius-buttons: 50px;
+$radius-illustration: 63.75px;
+$radius-illustration-containers: 63.75px;
+$radius-pill: 50px;
+$radius-full: 50px;
+
+// --- Shadows (MindMarket rule: NO drop shadows! Flat paper elevation) ---
+$shadow-xs: none;
+$shadow-sm: none;
+$shadow-md: none;
+$shadow-lg: none;
+$shadow-xl: none;
+
+// --- Breakpoints ---
+$bp-mobile: 320px;
+$bp-mobile-lg: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+$bp-desktop-lg: 1280px;
+$bp-desktop-xl: 1440px;
+$bp-wide: 1600px;
+
+// --- Transitions ---
+$ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+$ease-in: cubic-bezier(0.4, 0, 1, 1);
+$ease-out: cubic-bezier(0, 0, 0.2, 1);
+$ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+$duration-fast: 150ms;
+$duration-normal: 250ms;
+$duration-slow: 400ms;
+
+// --- Z-index ---
+$z-dropdown: 100;
+$z-sticky: 200;
+$z-header: 300;
+$z-mobile-nav: 350;
+$z-overlay: 400;
+$z-modal: 500;
+$z-toast: 600;
+$z-tooltip: 700;
+
+// --- Layout ---
+$header-height: 84px;
+$header-height-mobile: 68px;
+$mobile-nav-height: 72px;
+$page-max-width: 1200px;
+$container-max: 1200px;
+$container-narrow: 840px;
+$card-padding: 21px;
+$element-gap: 20px;
+$section-gap: 96px;
+

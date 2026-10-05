@@ -1,0 +1,543 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.discoverContainer {
+  @include container;
+  padding-top: 24px;
+  padding-bottom: 80px;
+}
+
+.topBar {
+  margin-bottom: 32px;
+}
+
+.searchWrap {
+  max-width: 680px;
+}
+
+.loadingState {
+  padding: 64px 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spinner {
+  width: 44px;
+  height: 44px;
+  border: 3px solid rgba($color-ink-black, 0.15);
+  border-top-color: $color-fresh-grass;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loadingTitle {
+  font-family: $font-display;
+  font-size: 28px;
+  font-weight: 500;
+  color: $color-ink-black;
+  margin-bottom: 8px;
+}
+
+.loadingSubtitle {
+  font-size: 15px;
+  color: $color-stone-gray;
+  max-width: 480px;
+}
+
+.errorState {
+  background: $color-pure-white;
+  border: 1px solid $color-coral-pop;
+  border-radius: 30px;
+  padding: 40px;
+  text-align: center;
+  max-width: 520px;
+  margin: 32px auto;
+
+  h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: $color-coral-pop;
+    margin: 12px 0 8px 0;
+  }
+
+  p {
+    font-size: 15px;
+    color: $color-stone-gray;
+    margin-bottom: 20px;
+  }
+}
+
+.errorIcon {
+  color: $color-coral-pop;
+}
+
+.retryBtn {
+  @include button-reset;
+  background: $color-fresh-grass;
+  color: $color-ink-black;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform $duration-fast $ease-default;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.resultsHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+
+  @include tablet-up {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.resultsTitle {
+  font-family: $font-display;
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: $color-ink-black;
+  margin-bottom: 4px;
+}
+
+.resultsCountGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.resultsCount {
+  font-size: 14px;
+  color: $color-stone-gray;
+
+  strong {
+    color: $color-ink-black;
+  }
+}
+
+.sortWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 50px;
+  padding: 6px 14px;
+  align-self: flex-start;
+}
+
+.sortIcon {
+  color: $color-ink-black;
+}
+
+.sortSelect {
+  border: none;
+  background: transparent;
+  font-family: $font-body;
+  font-size: 14px;
+  font-weight: 500;
+  color: $color-ink-black;
+  outline: none;
+  cursor: pointer;
+}
+
+.providerStatusBar {
+  background: rgba($color-ink-black, 0.02);
+  border: 1px solid $color-hairline-mist;
+  border-radius: 16px;
+  padding: 12px 18px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @include tablet-up {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.providerStatusTitle {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $color-stone-gray;
+  white-space: nowrap;
+}
+
+.providerPillsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.providerMiniCard {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+
+  &.pillHealthy {
+    background: rgba($color-fresh-grass, 0.15);
+    border-color: rgba($color-fresh-grass, 0.4);
+    color: #1a5e20;
+  }
+
+  &.pillDegraded {
+    background: rgba(#f59e0b, 0.12);
+    border-color: rgba(#f59e0b, 0.35);
+    color: #b45309;
+  }
+
+  &.pillBlocked {
+    background: rgba($color-coral-pop, 0.12);
+    border-color: rgba($color-coral-pop, 0.35);
+    color: $color-coral-pop;
+  }
+
+  &.pillUnavailable {
+    background: rgba($color-stone-gray, 0.08);
+    border-color: $color-hairline-mist;
+    color: $color-stone-gray;
+  }
+}
+
+.providerMiniName {
+  font-weight: 600;
+}
+
+.providerMiniStatus {
+  font-size: 11px;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.loadMoreContainer {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+}
+
+.loadMoreBtn {
+  @include button-reset;
+  background: $color-ink-black;
+  color: $color-pure-white;
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all $duration-fast $ease-default;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    background: #2a2a2a;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.buttonSpinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.emptyResultsCard {
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 50px;
+  padding: 48px 32px;
+  text-align: center;
+  max-width: 600px;
+  margin: 32px auto;
+
+  h2 {
+    font-family: $font-display;
+    font-size: 24px;
+    font-weight: 500;
+    color: $color-ink-black;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 15px;
+    color: $color-stone-gray;
+    margin-bottom: 24px;
+  }
+}
+
+.emptyIcon {
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+.integrityBanner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba($color-ink-black, 0.04);
+  border: 1px solid $color-hairline-mist;
+  border-radius: 50px;
+  padding: 6px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $color-ink-black;
+  margin-bottom: 16px;
+}
+
+.providerMatrix {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  text-align: left;
+  margin: 24px 0;
+
+  @include tablet-up {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.providerCard {
+  background: $color-cream-paper;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.providerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.providerName {
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-ink-black;
+}
+
+.statusPill {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 50px;
+
+  &.active {
+    background: $color-fresh-grass;
+    color: $color-ink-black;
+  }
+
+  &.degraded {
+    background: rgba(#f59e0b, 0.15);
+    color: #b45309;
+  }
+
+  &.blocked {
+    background: rgba($color-coral-pop, 0.15);
+    color: $color-coral-pop;
+  }
+
+  &.inactive {
+    background: rgba($color-stone-gray, 0.15);
+    color: $color-stone-gray;
+  }
+}
+
+.providerErrorNote {
+  font-size: 11px;
+  color: $color-coral-pop;
+  background: rgba($color-coral-pop, 0.08);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.providerEnv {
+  font-family: monospace;
+  font-size: 11px;
+  color: $color-stone-gray;
+  background: rgba($color-ink-black, 0.04);
+  padding: 6px 8px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.freshnessBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  background: $color-fresh-grass;
+  color: $color-ink-black;
+  padding: 4px 12px;
+  border-radius: 50px;
+  margin-top: 6px;
+}
+
+.refreshingBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(#0284c7, 0.12);
+  border: 1px solid rgba(#0284c7, 0.35);
+  color: #0369a1;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 6px;
+  animation: pulseFade 2s infinite ease-in-out;
+}
+
+.spinIcon {
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes pulseFade {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+.suggestionsBox {
+  background: $color-cream-paper;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 20px;
+  padding: 18px 24px;
+  text-align: left;
+  font-size: 14px;
+
+  strong {
+    color: $color-ink-black;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 20px;
+    color: $color-stone-gray;
+
+    li {
+      margin-bottom: 6px;
+    }
+  }
+}
+
+.marketplaceFilterBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 0 12px 0;
+  margin-bottom: 20px;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $color-hairline-mist;
+    border-radius: 4px;
+  }
+}
+
+.filterLabel {
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-stone-gray;
+  white-space: nowrap;
+  margin-right: 4px;
+}
+
+.marketplaceChip {
+  @include button-reset;
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 50px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-stone-gray;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all $duration-fast $ease-default;
+
+  &:hover {
+    color: $color-ink-black;
+    border-color: $color-ink-black;
+  }
+
+  &.activeChip {
+    background: $color-ink-black;
+    color: $color-pure-white;
+    border-color: $color-ink-black;
+  }
+
+  &.qcChip {
+    border-color: #86efac;
+    color: #15803d;
+    background: #f0fdf4;
+
+    &.activeChip {
+      background: #15803d;
+      color: $color-pure-white;
+      border-color: #15803d;
+    }
+  }
+}
+

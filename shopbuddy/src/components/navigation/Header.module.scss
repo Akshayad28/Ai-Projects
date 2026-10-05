@@ -1,0 +1,236 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.headerWrapper {
+  position: fixed;
+  top: 16px;
+  left: 0;
+  right: 0;
+  z-index: $z-header;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  padding: 0 16px;
+}
+
+.navPill {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 1200px;
+  height: 64px;
+  background: $color-pure-white;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 50px;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px 0 16px;
+  position: relative;
+  transition: border-color $duration-normal $ease-default;
+
+  &:hover {
+    border-color: $color-ink-black;
+  }
+
+  @include mobile {
+    height: 56px;
+    padding: 0 8px 0 12px;
+  }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: $color-ink-black;
+}
+
+.logoBox {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  overflow: hidden;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.logoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.brandName {
+  font-family: $font-body;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  color: $color-ink-black;
+}
+
+.centerNav {
+  display: none;
+
+  @include desktop {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.rightActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.currencyWrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: $color-cream-paper;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 50px;
+  padding: 6px 12px;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.globeIcon {
+  color: $color-ink-black;
+  flex-shrink: 0;
+}
+
+.chevronIcon {
+  color: $color-ink-black;
+  flex-shrink: 0;
+}
+
+.currencySelect {
+  border: none;
+  background: transparent;
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-ink-black;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  padding-right: 2px;
+}
+
+.menuToggleBtn {
+  @include button-reset;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: $color-fresh-grass;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: none;
+  transition: transform $duration-fast $ease-default, background-color $duration-fast $ease-default;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.primaryCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: $color-cream-paper;
+  border: 1px solid $color-hairline-mist;
+  border-radius: 50px;
+  box-shadow: none;
+  font-family: $font-body;
+  font-size: 14px;
+  font-weight: 500;
+  color: $color-ink-black;
+  text-decoration: none;
+  transition: all $duration-fast $ease-default;
+
+  &:hover {
+    background: $color-pure-white;
+    border-color: $color-ink-black;
+  }
+
+  @include mobile {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}
+
+.actionDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $color-sky-pop; // Step 2: sky-pop #2ba0ff dot
+}
+
+.menuDropdown {
+  pointer-events: auto;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 320px;
+  background: $color-pure-white;
+  border: 1px solid $color-ink-black;
+  border-radius: 20px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: none;
+}
+
+.menuItem {
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  color: $color-ink-black;
+  text-decoration: none;
+  transition: background $duration-fast $ease-default;
+
+  &:hover {
+    background: $color-cream-paper;
+  }
+}
+
+.demoModeBanner {
+  pointer-events: auto;
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: $color-sandstone; // slim sandstone/cream pill below nav
+  border: 1px solid $color-hairline-mist;
+  border-radius: 50px;
+  padding: 5px 16px;
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 500;
+  color: $color-ink-black;
+  box-shadow: none;
+}
+
+.demoDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $color-fresh-grass;
+  flex-shrink: 0;
+}
+

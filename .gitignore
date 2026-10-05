@@ -1,0 +1,87 @@
+# ============================================================
+# SHOPFI / SHOPBUDDY — ROOT GITIGNORE
+# Protects all credentials, keys, environment configs, and DBs
+# ============================================================
+
+# Environment variables and secrets (CRITICAL)
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+shopbuddy/.env
+shopbuddy/.env.*
+!shopbuddy/.env.example
+
+# Local databases and storage
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+shopbuddy-dev.db
+backend/shopbuddy-dev.db
+
+# Cryptographic keys, certs, and credentials
+*.pem
+*.key
+*.crt
+*.pfx
+*.p12
+credentials.json
+token.json
+service-account*.json
+
+# Python virtual environment and bytecode
+.venv/
+venv/
+env/
+ENV/
+backend/.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Node / Next.js artifacts
+node_modules/
+shopbuddy/node_modules/
+.next/
+shopbuddy/.next/
+out/
+shopbuddy/out/
+build/
+shopbuddy/build/
+*.tsbuildinfo
+next-env.d.ts
+
+# Logs and debug files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# OS and IDE files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Temporary scratch and test files
+scratch/
+tmp/
+*.tmp
