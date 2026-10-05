@@ -154,8 +154,8 @@ export interface CategoryDTO {
   sort_order: number;
 }
 
-const rawApiUrl = (process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000').replace(/\/+$/, '');
-const API_BASE = rawApiUrl.endsWith('/api') ? rawApiUrl : `${rawApiUrl}/api`;
+const rawApiUrl = (process.env.NEXT_PUBLIC_API_URL || '').replace(/\/+$/, '');
+const API_BASE = rawApiUrl ? (rawApiUrl.endsWith('/api') ? rawApiUrl : `${rawApiUrl}/api`) : '/api';
 
 const CLIENT_SEARCH_CACHE = new Map<string, { data: SearchResponseDTO; timestamp: number }>();
 

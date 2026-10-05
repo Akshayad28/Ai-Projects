@@ -9,11 +9,13 @@ from app.api.routes.products import router as products_router
 from app.api.routes.reviews import router as reviews_router
 from app.api.routes.search import router as search_router
 from app.api.routes.user_data import router as user_data_router
+from app.api.v1.categories import router as categories_router
 
 api_router = APIRouter()
 
 api_router.include_router(search_router)
 api_router.include_router(products_router)
+api_router.include_router(categories_router)
 api_router.include_router(offers_router)
 api_router.include_router(price_history_router)
 api_router.include_router(reviews_router)
