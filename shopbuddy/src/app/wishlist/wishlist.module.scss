@@ -34,20 +34,22 @@
 .itemCard {
   background: $color-pure-white;
   border: 1px solid $color-hairline-mist;
-  border-radius: 50px;
-  padding: 20px 28px;
+  border-radius: clamp(24px, 4vw, 50px);
+  padding: clamp(14px, 2vw, 20px) clamp(16px, 2.5vw, 28px);
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
   align-items: center;
+  box-sizing: border-box;
+  width: 100%;
   transition: border-color $duration-fast $ease-default;
 
   &:hover {
     border-color: $color-ink-black;
   }
 
-  @include tablet-up {
-    grid-template-columns: 80px 1fr 160px 160px;
+  @media (min-width: 640px) {
+    grid-template-columns: 80px 1fr auto auto;
   }
 }
 

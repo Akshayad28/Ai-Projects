@@ -13,23 +13,25 @@
 // ── LEFT CLUSTER BOX (Measured on 1824x862 target) ──
 .leftClusterBox {
   position: absolute;
-  left: 3.3vw;
-  bottom: 2.4vw;
-  width: clamp(260px, 23.3vw, 450px);
+  left: clamp(8px, 2.5vw, 48px);
+  bottom: clamp(12px, 2.4vw, 40px);
+  width: min(23.3vw, calc((100vw - 760px) * 0.46), 450px);
   aspect-ratio: 425 / 692;
   pointer-events: none;
   z-index: 1;
+  transition: opacity 0.3s ease;
 }
 
 // ── RIGHT CLUSTER BOX (Measured on 1824x862 target) ──
 .rightClusterBox {
   position: absolute;
-  right: 1.9vw;
-  bottom: 2.8vw;
-  width: clamp(320px, 28.8vw, 555px);
+  right: clamp(8px, 1.9vw, 36px);
+  bottom: clamp(14px, 2.8vw, 48px);
+  width: min(28.8vw, calc((100vw - 760px) * 0.52), 555px);
   aspect-ratio: 525 / 685;
   pointer-events: none;
   z-index: 1;
+  transition: opacity 0.3s ease;
 }
 
 // ── Children Positioning inside Left Cluster ──
@@ -231,7 +233,13 @@
   }
 }
 
-// ── Responsive Rules (Step 7) ──
+// When search is focused, dim mascots to keep input area crisp
+.searchFocused {
+  opacity: 0.15;
+  transition: opacity $duration-normal $ease-default;
+}
+
+// ── Responsive Rules ──
 
 // ≥1280px: Both clusters, all five bots at full geometry
 @media (min-width: 1280px) {
@@ -244,11 +252,11 @@
 // 1024px - 1279px: Shrink clusters and hide beanbag and drill bots
 @media (min-width: 1024px) and (max-width: 1279px) {
   .leftClusterBox {
-    width: 19vw;
+    width: min(19vw, 240px);
   }
 
   .rightClusterBox {
-    width: 24vw;
+    width: min(24vw, 300px);
   }
 
   .botBeanbag,
@@ -259,16 +267,16 @@
   }
 }
 
-// 768px - 1023px: Keep only bot-phone-airpods (left) and bot-shopping (right), ~15vw, cropped ≤10% at screen edge
+// 768px - 1023px (iPads, tablets, zoomed desktop): Keep only edge bots cropped cleanly
 @media (min-width: 768px) and (max-width: 1023px) {
   .leftClusterBox {
-    left: -1.5vw;
-    width: 15vw;
+    left: -2vw;
+    width: min(15vw, 120px);
   }
 
   .rightClusterBox {
-    right: -1.5vw;
-    width: 16vw;
+    right: -2vw;
+    width: min(16vw, 130px);
   }
 
   .desktopBot {
@@ -293,8 +301,8 @@
   }
 }
 
-// <768px: Hide both clusters (single mobile phone bot rendered above eyebrow in page.tsx)
-@media (max-width: 767px) {
+// Hide lateral mascot clusters when screen width < 768px, OR viewport height is restricted (< 580px, e.g. landscape phone, high zoom)
+@media (max-width: 767px), (max-height: 580px) {
   .mascotLayer {
     display: none !important;
   }

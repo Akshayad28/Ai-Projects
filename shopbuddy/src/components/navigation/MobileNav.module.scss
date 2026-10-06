@@ -7,11 +7,14 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: $mobile-nav-height;
+  width: 100%;
+  height: calc(#{$mobile-nav-height} + env(safe-area-inset-bottom, 0px));
+  min-height: calc(#{$mobile-nav-height} + env(safe-area-inset-bottom, 0px));
   background: $color-pure-white;
   border-top: 1px solid $color-hairline-mist;
   z-index: $z-mobile-nav;
   padding-bottom: env(safe-area-inset-bottom, 0px);
+  box-sizing: border-box;
 
   @include desktop {
     display: none;
@@ -21,7 +24,11 @@
 .navGrid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  height: 100%;
+  height: $mobile-nav-height;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .navItem {
@@ -29,10 +36,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3px;
+  gap: 2px;
+  padding: 4px 0;
   text-decoration: none;
   color: $color-stone-gray;
   transition: color $duration-fast $ease-default;
+  min-width: 0;
+  box-sizing: border-box;
 
   &.active {
     color: $color-ink-black;
@@ -70,5 +80,15 @@
 
 .label {
   font-size: 11px;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  text-align: center;
+
+  @media (max-width: 360px) {
+    font-size: 10px;
+  }
 }
 

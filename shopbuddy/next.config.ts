@@ -34,7 +34,10 @@ const nextConfig: NextConfig = {
     ],
   },
   async rewrites() {
-    const backendUrl = (process.env.BACKEND_INTERNAL_URL || 'http://127.0.0.1:8000').replace(/\/+$/, '');
+    const backendUrl = process.env.BACKEND_INTERNAL_URL ? process.env.BACKEND_INTERNAL_URL.replace(/\/+$/, '') : '';
+    if (!backendUrl) {
+      return [];
+    }
     return [
       {
         source: '/api/:path*',

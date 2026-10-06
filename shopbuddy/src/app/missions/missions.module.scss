@@ -29,14 +29,17 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
-  max-width: 680px;
+  max-width: min(680px, 100%);
+  width: 100%;
 }
 
 .missionCard {
   background: $color-pure-white;
   border: 1px solid $color-hairline-mist;
-  border-radius: 50px;
-  padding: 32px;
+  border-radius: clamp(24px, 4vw, 50px);
+  padding: clamp(18px, 3vw, 32px);
+  box-sizing: border-box;
+  width: 100%;
   transition: border-color $duration-fast $ease-default;
 
   &:hover {

@@ -45,25 +45,22 @@
 // --- Layout ---
 @mixin container {
   width: 100%;
-  max-width: $container-max;
+  max-width: min(100%, #{$container-max});
   margin-left: auto;
   margin-right: auto;
-  padding-left: $space-5;
-  padding-right: $space-5;
-
-  @include desktop {
-    padding-left: $space-8;
-    padding-right: $space-8;
-  }
+  padding-left: clamp(12px, 3vw, #{$space-8});
+  padding-right: clamp(12px, 3vw, #{$space-8});
+  box-sizing: border-box;
 }
 
 @mixin container-narrow {
   width: 100%;
-  max-width: $container-narrow;
+  max-width: min(100%, #{$container-narrow});
   margin-left: auto;
   margin-right: auto;
-  padding-left: $space-5;
-  padding-right: $space-5;
+  padding-left: clamp(12px, 3vw, #{$space-6});
+  padding-right: clamp(12px, 3vw, #{$space-6});
+  box-sizing: border-box;
 }
 
 // --- Typography ---

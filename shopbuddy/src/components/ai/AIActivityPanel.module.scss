@@ -16,38 +16,89 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: $space-3 $space-4;
+  padding: clamp(10px, 1.5vw, $space-3) clamp(12px, 2vw, $space-4);
   background: rgba($bg-primary, 0.6);
   border-bottom: 1px solid transparent;
   transition: background $duration-fast $ease-default;
+  box-sizing: border-box;
+  text-align: left;
 
   &:hover {
     background: $bg-primary;
   }
 }
 
-.headerLeft {
+.headerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+
+  @include tablet-up {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    width: auto;
+  }
+}
+
+.headerTopRow {
   display: flex;
   align-items: center;
-  gap: $space-3;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 0;
+
+  @include tablet-up {
+    width: auto;
+    justify-content: flex-start;
+  }
+}
+
+.headerTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
 }
 
 .iconPulse {
   width: 28px;
   height: 28px;
+  min-width: 28px;
   border-radius: 50%;
   background: $accent-highlight;
   color: $accent-primary;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .headerTitle {
   font-family: $font-body;
   font-weight: $fw-semibold;
-  font-size: $fs-sm;
+  font-size: clamp(13px, 1.4vw, $fs-sm);
   color: $text-primary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media (max-width: 360px) {
+    font-size: 12px;
+  }
+}
+
+.metaBadgesRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  @include tablet-up {
+    flex-wrap: nowrap;
+  }
 }
 
 .metaBadge {
@@ -59,15 +110,19 @@
   background: $bg-card;
   border: 1px solid $border-default;
   border-radius: $radius-full;
-  padding: 1px 6px;
+  padding: 2px 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .demoTag {
   font-size: 11px;
   color: $accent-warning;
   background: rgba($accent-warning, 0.1);
-  padding: 1px 6px;
+  padding: 2px 8px;
   border-radius: $radius-full;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .liveTag {
@@ -80,6 +135,8 @@
   background: $color-fresh-grass;
   padding: 2px 8px;
   border-radius: $radius-full;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .unconfiguredTag {
@@ -92,14 +149,39 @@
   background: rgba($color-stone-gray, 0.12);
   padding: 2px 8px;
   border-radius: $radius-full;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.headerRight {
+.headerRightMobile {
   display: flex;
+  align-items: center;
+  gap: 4px;
+  color: $text-secondary;
+  font-size: 12px;
+  flex-shrink: 0;
+
+  @include tablet-up {
+    display: none;
+  }
+}
+
+.headerRightDesktop {
+  display: none;
   align-items: center;
   gap: $space-2;
   color: $text-secondary;
   font-size: $fs-xs;
+  flex-shrink: 0;
+  white-space: nowrap;
+
+  @include tablet-up {
+    display: flex;
+  }
+}
+
+.toggleText {
+  white-space: nowrap;
 }
 
 .panelBody {

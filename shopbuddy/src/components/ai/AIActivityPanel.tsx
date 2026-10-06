@@ -69,31 +69,49 @@ export const AIActivityPanel: React.FC<AIActivityPanelProps> = ({
         className={styles.headerBtn}
         aria-expanded={isOpen}
       >
-        <div className={styles.headerLeft}>
-          <div className={styles.iconPulse}>
-            <Sparkles size={16} />
+        <div className={styles.headerContent}>
+          <div className={styles.headerTopRow}>
+            <div className={styles.headerTitleGroup}>
+              <div className={styles.iconPulse}>
+                <Sparkles size={16} />
+              </div>
+              <span className={styles.headerTitle}>
+                ShopBuddy Research Intelligence
+              </span>
+            </div>
+
+            <div className={styles.headerRightMobile}>
+              <span className={styles.toggleText}>
+                {isOpen ? 'Hide' : 'Details'}
+              </span>
+              {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+            </div>
           </div>
-          <span className={styles.headerTitle}>
-            ShopBuddy Research Intelligence
-          </span>
-          <span className={styles.metaBadge}>
-            <Clock size={12} />
-            {durationMs}ms
-          </span>
-          {isLive ? (
-            <span className={styles.liveTag}>
-              <ShieldCheck size={12} />
-              {freshnessLabel || 'Live Real-Time Data'}
-            </span>
-          ) : (
-            <span className={styles.unconfiguredTag}>
-              {liveProvidersConfigured} Live Retailers Connected
-            </span>
-          )}
+
+          <div className={styles.metaBadgesRow}>
+            {durationMs > 0 && (
+              <span className={styles.metaBadge}>
+                <Clock size={12} />
+                <span>{durationMs}ms</span>
+              </span>
+            )}
+            {isLive ? (
+              <span className={styles.liveTag}>
+                <ShieldCheck size={12} />
+                <span>{freshnessLabel || 'Live Real-Time Data'}</span>
+              </span>
+            ) : (
+              <span className={styles.unconfiguredTag}>
+                <span>{liveProvidersConfigured} Live Retailers Connected</span>
+              </span>
+            )}
+          </div>
         </div>
 
-        <div className={styles.headerRight}>
-          <span className={styles.toggleText}>{isOpen ? 'Hide Research Steps' : 'See what ShopBuddy researched'}</span>
+        <div className={styles.headerRightDesktop}>
+          <span className={styles.toggleText}>
+            {isOpen ? 'Hide Research Steps' : 'See what ShopBuddy researched'}
+          </span>
           {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
         </div>
       </button>

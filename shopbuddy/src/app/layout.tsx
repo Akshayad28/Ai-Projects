@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import '@/styles/globals.scss';
 import { Header } from '@/components/navigation/Header';
@@ -10,6 +10,14 @@ const inter = Inter({
   weight: ['400', '500'],
   display: 'swap',
 });
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+  themeColor: '#f5f1e4',
+};
 
 export const metadata: Metadata = {
   title: 'ShopBuddy AI — Search smarter. Compare everything. Buy with confidence.',

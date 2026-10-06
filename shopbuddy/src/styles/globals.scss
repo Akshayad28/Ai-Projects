@@ -21,6 +21,8 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
 
   @media (prefers-reduced-motion: reduce) {
     scroll-behavior: auto;
@@ -102,6 +104,8 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 // --- Focus ---
@@ -125,6 +129,7 @@ video,
 svg {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 // --- Lists ---
@@ -163,6 +168,8 @@ h1, h2, h3, h4, h5, h6 {
   color: $color-ink-black;
   line-height: $lh-heading;
   letter-spacing: -0.04em;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 // --- Selection ---
@@ -208,9 +215,13 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: calc($header-height + 24px);
   min-height: 100vh;
   min-height: 100dvh;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 
-  @include mobile {
-    padding-top: calc($header-height-mobile + 16px);
-    padding-bottom: $mobile-nav-height;
+  // On tablets and mobile (< 1024px) where bottom MobileNav is active
+  @media (max-width: #{$bp-desktop - 1px}) {
+    padding-top: calc($header-height-mobile + 18px);
+    padding-bottom: calc(#{$mobile-nav-height} + env(safe-area-inset-bottom, 16px) + 28px);
   }
 }
